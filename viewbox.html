@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Titan Gym | Boxing & Fitness</title>
+    <style>
+        /* --- CORE SETUP --- */
+        body {
+            margin: 0;
+            background: #050505;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- MOVING BACKGROUND SECTION --- */
+        .parallax-header {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2069');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .parallax-header h1 { font-size: 3.5rem; color: gold; margin: 0; letter-spacing: 4px; }
+
+        /* --- THE ANIMATED VIEW BOX GALLERY --- */
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            padding: 40px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .view-box {
+            position: relative;
+            height: 250px; /* Smaller, fitting size */
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #222;
+            cursor: pointer;
+        }
+
+        .view-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease; /* Smooth animation */
+        }
+
+        /* The Slide-Up Content */
+        .info-overlay {
+            position: absolute;
+            bottom: -100%; /* Hidden below the box */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: bottom 0.5s ease-in-out; /* The animation */
+            text-align: center;
+        }
+
+        /* Animation Triggers */
+        .view-box:hover .info-overlay { bottom: 0; }
+        .view-box:hover img { transform: scale(1.1) rotate(2deg); }
+        .view-box:hover { border-color: gold; box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+
+        .info-overlay h4 { color: gold; margin: 0 0 10px 0; text-transform: uppercase; }
+        .info-overlay p { font-size: 0.85rem; color: #ccc; margin: 0; }
+
+        /* --- PRICING SECTION --- */
+        .pricing {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .plan-card {
+            background: #111;
+            padding: 30px;
+            border-radius: 15px;
+            width: 280px;
+            text-align: center;
+            border: 1px solid gold;
+        }
+
+        .btn-mpesa {
+            background: #4aad31;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="parallax-header">
+        <h1>TITAN ARENA</h1>
+        <p>WHERE LEGENDS ARE MADE</p>
+    </div>
+
+    <div class="tour-grid">
+        <div class="view-box">
+            <img src="reception.jfif" alt="Lifting">
+            <div class="info-overlay">
+                <h4>Power House</h4>
+                <p>Welcome to the pain zone.</p>
+            </div>
+        </div>
+        <div class="view-box">
+            <img src="cardio.jfif" alt="Lifting">
+            <div class="info-overlay">
+                <h4>Power House</h4>
+                <p>cardio.</p>
+            </div>
+        </div>
+        
+        <div class="view-box">
+            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=500" alt="Boxing">
+            <div class="info-overlay">
+                <h4>Boxing Ring</h4>
+                <p>Professional Sparring Arena for Championship Training.</p>
+            </div>
+        </div>
+
+        <div class="view-box">
+            <img src="punchbag.webp" alt="Bags">
+            <div class="info-overlay">
+                <h4>The Strike Zone</h4>
+                <p>Heavy Bags & Speed Balls for HIIT Workouts.</p>
+            </div>
+        </div>
+
+        <div class="view-box">
+            <img src="download.jfif" alt="Lifting">
+            <div class="info-overlay">
+                <h4>Power House</h4>
+                <p>Olympic Racks & Dumbbells up to 60KG.</p>
+            </div>
+        </div>
+
+        <div class="view-box">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=500" alt="Showers">
+            <div class="info-overlay">
+                <h4>Fresh Zone</h4>
+                <p>High-Pressure Hot Showers & Clean Facilities.</p>
+            </div>
+        </div>
+
+        <div class="view-box">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=500" alt="Cardio">
+            <div class="info-overlay">
+                <h4>Endurance Hub</h4>
+                <p>Treadmills & Assault Bikes with Smart Displays.</p>
+            </div>
+        </div>
+       <div class="view-box">
+            <img src="deadlift.avif" alt="Cardio">
+            <div class="info-overlay">
+                <h4>Endurance Hub</h4>
+                <p>deadlift.</p>
+            </div>
+        </div>
+
+        <div class="view-box">
+            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=500" alt="Sauna">
+            <div class="info-overlay">
+                <h4>Wellness Retreat</h4>
+                <p>Himalayan Salt Sauna & Recovery Suite.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="pricing">
+        <div class="plan-card">
+            <h3>BASIC PLAN</h3>
+            <p>5,000 KES / Month</p>
+            <button class="btn-mpesa" onclick="pay('Basic')">Pay with M-Pesa</button>
+        </div>
+        <div class="plan-card">
+            <h3>ELITE PLAN</h3>
+            <p>10,000 KES / Month</p>
+            <button class="btn-mpesa" onclick="pay('Elite')">Pay with M-Pesa</button>
+        </div>
+    </div>
+    <div class="home-button-container">
+    <a href="index.html" class="home-link">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="11" stroke="gold" stroke-width="2"/>
+            <path d="M12 6L6 11V18H10V14H14V18H18V11L12 6Z" fill="gold"/>
+        </svg>
+        <span>BACK TO HOME</span>
+    </a>
+</div>
+
+<style>
+    .home-button-container {
+        margin: 20px;
+        display: inline-block;
+    }
+
+    .home-link {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Animation: Subtle grow effect when hovering */
+    .home-link:hover {
+        transform: scale(1.1);
+    }
+
+    /* Style for the text under the SVG */
+    .home-link span {
+        color: gold;
+        font-size: 0.7rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    /* SVG hover glow */
+    .home-link:hover svg {
+        filter: drop-shadow(0 0 8px gold);
+    }
+</style>
+
+    <script>
+        function pay(plan) {
+            localStorage.setItem('selectedPlan', plan);
+            window.location.href = "payment.html";
+        }
+    </script>
+
+</body>
+</html>

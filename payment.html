@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Payment | Titan Gym</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .payment-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid gold;
+            text-align: center;
+            width: 380px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+        }
+
+        /* M-PESA SVG LOGO */
+        .mpesa-logo-container {
+            margin-bottom: 20px;
+        }
+
+        .payment-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px;
+            background: #333;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tab.active {
+            background: #4aad31; /* M-Pesa Green */
+            color: white;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus { border-color: gold; }
+
+        .btn-pay {
+            width: 100%;
+            padding: 15px;
+            background: #4aad31;
+            color: white;
+            border: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* Success Screen Overlay */
+        #successScreen {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            text-align: center;
+        }
+
+        .congrats-text { color: gold; font-size: 2.5rem; margin: 10px 0; }
+        
+        .btn-home {
+            background: gold;
+            color: black;
+            padding: 12px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="payment-card">
+        <div class="mpesa-logo-container">
+            <svg width="120" height="50" viewBox="0 0 100 40">
+                <rect width="100" height="40" rx="5" fill="#4aad31"/>
+                <text x="10" y="27" font-family="Arial" font-weight="bold" font-size="18" fill="white">M-</text>
+                <text x="35" y="27" font-family="Arial" font-weight="bold" font-size="18" fill="#f7941d">PESA</text>
+            </svg>
+        </div>
+
+        <h3>Secure Checkout</h3>
+        
+        <div class="payment-tabs">
+            <div class="tab active">M-PESA</div>
+            <div class="tab">CARD</div>
+        </div>
+
+        <div id="mpesaForm">
+            <p style="font-size: 0.85rem; color: #bbb;">Enter phone number for STK Push</p>
+            <input type="text" id="phone" placeholder="2547XXXXXXXX">
+            <button class="btn-pay" onclick="handlePayment()">PAY NOW</button>
+        </div>
+    </div>
+
+    <div id="successScreen">
+        <div style="font-size: 80px;">🎊</div>
+        <h1 class="congrats-text">CONGRATULATIONS!</h1>
+        <p>Your payment was successful. Welcome to Titan Gym!</p>
+        <button class="btn-home" onclick="goHome()">BACK TO HOME</button>
+    </div>
+    <div class="home-button-container">
+    <a href="index.html" class="home-link">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="11" stroke="gold" stroke-width="2"/>
+            <path d="M12 6L6 11V18H10V14H14V18H18V11L12 6Z" fill="gold"/>
+        </svg>
+        <span>BACK TO HOME</span>
+    </a>
+</div>
+
+<style>
+    .home-button-container {
+        margin: 20px;
+        display: inline-block;
+    }
+
+    .home-link {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Animation: Subtle grow effect when hovering */
+    .home-link:hover {
+        transform: scale(1.1);
+    }
+
+    /* Style for the text under the SVG */
+    .home-link span {
+        color: gold;
+        font-size: 0.7rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    /* SVG hover glow */
+    .home-link:hover svg {
+        filter: drop-shadow(0 0 8px gold);
+    }
+</style>
+
+    <script>
+        function handlePayment() {
+            const phone = document.getElementById('phone').value;
+            if(!phone) {
+                alert("Please enter your M-Pesa number");
+                return;
+            }
+
+            // Simulate a processing delay
+            const btn = document.querySelector('.btn-pay');
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                document.getElementById('successScreen').style.display = 'flex';
+            }, 2000);
+        }
+
+        function goHome() {
+            // This takes the user back to your main index file
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

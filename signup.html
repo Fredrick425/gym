@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | Titan Gym</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-card {
+            background: #111;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid gold;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        h2 { color: gold; margin-bottom: 5px; text-transform: uppercase; }
+        p { color: #888; font-size: 0.85rem; margin-bottom: 25px; }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label { display: block; margin-bottom: 5px; font-size: 0.75rem; color: gold; font-weight: bold; }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: gold;
+            outline: none;
+            background: #222;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 15px;
+            background: gold;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .signup-btn:hover {
+            background: #fff; /* Turns white on hover for a sleek look */
+            transform: scale(1.02);
+        }
+
+        .footer-link {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* This is the link you wanted to change */
+        .footer-link a { color: gold; text-decoration: none; cursor: pointer; }
+        .footer-link a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="signup-card">
+        <h2>Join Titan Gym</h2>
+        <p>Enter your details to create an account</p>
+
+        <form onsubmit="handleSignup(event)">
+            <div class="input-group">
+                <label>FULL NAME</label>
+                <input type="text" id="userName" placeholder="John Doe" required>
+            </div>
+
+            <div class="input-group">
+                <label>EMAIL ADDRESS</label>
+                <input type="email" id="userEmail" placeholder="email@example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>PASSWORD</label>
+                <input type="password" id="userPass" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="signup-btn">Create Account</button>
+        </form>
+
+        <div class="footer-link">
+            By signing up, you agree to our <a href="#">Terms</a>.<br><br>
+            Already have an account? <a href="signup.html">Sign In here</a>
+        </div>
+    </div>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault(); // Prevents the page from just reloading
+
+            const name = document.getElementById('userName').value;
+            
+            // Save the user's name so we can greet them on the Home page
+            localStorage.setItem('gymUserName', name);
+
+            alert("Registration Successful! Welcome, " + name);
+
+            // This takes the user back to your home page (index.html)
+            window.location.href = "index.html";
+        }
+    </script> 
+    <script src="script.js"></script>
+
+</body>
+</html>
